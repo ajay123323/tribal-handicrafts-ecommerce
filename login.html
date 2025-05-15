@@ -1,0 +1,246 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>E-Commerce Login & Signup</title> 
+    <style> 
+        /* General Styling */ 
+        body { 
+            font-family: 'Arial', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(to bottom right, rgba(245, 247, 250, 0.8), rgba(223, 233, 243, 0.8)),  
+                        url('mask.jpg') no-repeat center center/cover; 
+            color: #333; 
+        } 
+ 
+        .container { 
+            max-width: 1200px; 
+            margin: auto; 
+            padding: 20px; 
+        } 
+ 
+        .form-page { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            padding: 20px; 
+        } 
+ 
+        .form-container { 
+            background: #ffffff; 
+            padding: 40px; 
+            border-radius: 12px; 
+            max-width: 450px; 
+            width: 100%; 
+            text-align: center; 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+        } 
+ 
+        .form-heading { 
+            font-size: 2rem; 
+            color: #6c63ff; 
+            margin-bottom: 10px; 
+        } 
+ 
+        .form-dis { 
+            color: #555; 
+            margin-bottom: 20px; 
+        } 
+ 
+        .form-label { 
+            display: block; 
+            font-size: 1rem; 
+            color: #333; 
+            margin-bottom: 5px; 
+            text-align: left; 
+        } 
+ 
+        .form-input { 
+            width: 100%; 
+            padding: 12px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            font-size: 1rem; 
+            margin-bottom: 15px; 
+        } 
+ 
+        .form-btn { 
+            display: block; 
+            width: 100%; 
+            background: #6c63ff; 
+            color: #fff; 
+            border: none; 
+            padding: 12px; 
+            font-size: 1rem; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background 0.3s; 
+        } 
+ 
+        .form-btn:hover { 
+            background: #5b54e1; 
+        } 
+ 
+        .toggle-link { 
+            color: #6c63ff; 
+            font-weight: bold; 
+            cursor: pointer; 
+            margin-top: 10px; 
+        } 
+ 
+        .toggle-link:hover { 
+            text-decoration: underline; 
+        } 
+ 
+        .hidden { 
+            display: none; 
+        } 
+ 
+        .brand-logo { 
+            font-size: 2rem; 
+            font-weight: bold; 
+            color: #6c63ff; 
+        } 
+ 
+        .form-footer { 
+            margin-top: 20px; 
+            font-size: 0.9rem; 
+            color: #777; 
+        } 
+ 
+        .footer-link { 
+            color: #6c63ff; 
+            text-decoration: none; 
+            font-weight: bold; 
+        } 
+ 
+        .footer-link:hover { 
+            text-decoration: underline; 
+        } 
+ 
+        /* Popup styling */ 
+        .popup { 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            background: #4CAF50; 
+            color: #fff; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+            display: none; 
+            font-size: 1.2rem; 
+            animation: popupAnimation 1s ease-in-out; 
+        } 
+ 
+        @keyframes popupAnimation { 
+            0% { opacity: 0; transform: scale(0.8); } 
+            50% { opacity: 1; transform: scale(1.1); } 
+            100% { opacity: 1; transform: scale(1); } 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<div class="form-page"> 
+    <div class="form-container"> 
+        <!-- Login Form --> 
+        <div id="login-form"> 
+            <h1 class="form-heading">Welcome Back!</h1> 
+            <p class="form-dis">Sign in to continue shopping</p> 
+            <form id="login-form-element"> 
+                <label class="form-label" for="login-username">Username</label>
+
+
+<input type="text" id="login-username" class="form-input" placeholder="Enter your username" required> 
+                 
+                <label class="form-label" for="login-password">Password</label> 
+                <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required> 
+                 
+                <button type="submit" class="form-btn">Login</button> 
+            </form> 
+            <p class="toggle-link" onclick="toggleForms()">Don't have an account? Sign up</p> 
+        </div> 
+ 
+        <!-- Signup Form --> 
+        <div id="signup-form" class="hidden"> 
+            <h1 class="form-heading">Create Your Account</h1> 
+            <p class="form-dis">Start your shopping journey</p> 
+            <form id="signup-form-element"> 
+                <label class="form-label" for="signup-username">Username</label> 
+                <input type="text" id="signup-username" class="form-input" placeholder="Enter your username" required> 
+                 
+                <label class="form-label" for="signup-email">Email</label> 
+                <input type="email" id="signup-email" class="form-input" placeholder="Enter your email" required> 
+                 
+                <label class="form-label" for="signup-password">Password</label> 
+                <input type="password" id="signup-password" class="form-input" placeholder="Enter your password" required> 
+                 
+                <button type="submit" class="form-btn">Sign Up</button> 
+            </form> 
+            <p class="toggle-link" onclick="toggleForms()">Already have an account? Login</p> 
+        </div> 
+    </div> 
+</div> 
+ 
+<!-- Success Popup --> 
+<div class="popup" id="login-popup"> 
+    Login Successful! Welcome back. 
+</div> 
+ 
+<script> 
+    const mockData = { 
+        users: [ 
+            { username: 'john_doe', password: 'password123', email: 'john.doe@example.com' }, 
+            { username: 'jane_smith', password: '123password', email: 'jane.smith@example.com' }, 
+            { username: 'robert_brown', password: 'robert2024', email: 'robert.brown@example.com' } 
+        ] 
+    }; 
+ 
+    function toggleForms() { 
+        const loginForm = document.getElementById('login-form'); 
+        const signupForm = document.getElementById('signup-form'); 
+ 
+        if (loginForm.classList.contains('hidden')) { 
+            loginForm.classList.remove('hidden'); 
+            signupForm.classList.add('hidden'); 
+        } else { 
+            loginForm.classList.add('hidden'); 
+            signupForm.classList.remove('hidden'); 
+        } 
+    } 
+ 
+    document.getElementById('login-form-element').addEventListener('submit', async (event) => { 
+        event.preventDefault(); 
+        const username = document.getElementById('login-username').value; 
+        const password = document.getElementById('login-password').value; 
+ 
+        const popup = document.getElementById('login-popup'); 
+        popup.style.display = 'block'; 
+        setTimeout(() => { 
+            popup.style.display = 'none'; 
+        }, 3000); 
+ 
+        alert('Login Successful! Welcome back.'); 
+        localStorage.setItem('token', 'mockToken123'); 
+        window.location.href = "http://localhost:8080/Demoweb/#products"; 
+    }); 
+ 
+    document.getElementById('signup-form-element').addEventListener('submit', async (event) => { 
+        event.preventDefault(); 
+        const username = document.getElementById('signup-username').value; 
+        const email = document.getElementById('signup-email').value; 
+        const password = document.getElementById('signup-password').value; 
+ 
+        mockData.users.push({ username, password, email }); 
+        alert('Signup Successful! Please log in.'); 
+        toggleForms(); 
+    }); 
+</script> 
+ 
+</body> 
+</html>

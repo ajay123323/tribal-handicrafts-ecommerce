@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us Footer</title>
+  <style>
+    /* Basic Styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    /* Footer Styling */
+    #contact {
+      padding: 50px 20px;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInFooter 1.5s ease-out;
+    }
+
+    #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #ffdf6c;
+      opacity: 0;
+      animation: fadeInText 1s ease-out forwards;
+    }
+
+    #contact p {
+      margin: 8px 0;
+      font-size: 1.2rem;
+      opacity: 0;
+      color: #ffeedf;
+      animation: fadeInText 1.5s ease-out forwards;
+    }
+
+    /* Icon Styling */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .contact-info p {
+      transition: color 0.3s ease;
+    }
+
+    .contact-info p:hover {
+      color: #ffe660;
+    }
+
+    /* Copyright */
+    #contact p:last-child {
+      font-size: 0.9rem;
+      margin-top: 20px;
+      color: #c4c4c4;
+    }
+
+    /* Background Animation */
+    @keyframes fadeInFooter {
+      from {
+        background-position: 0% 50%;
+      }
+      to {
+        background-position: 100% 50%;
+      }
+    }
+
+    /* Text Animation */
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hover Effect for Interactive Feel */
+    .contact-info p:hover {
+      text-shadow: 0px 0px 8px #ffffff;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<footer id="contact">
+  <h2>Contact Us</h2>
+  <div class="contact-info">
+    <p>Email: <a href="mailto:info@tribalhandicrafts.com" style="color: inherit; text-decoration: none;">info@tribalhandicrafts.com</a></p>
+    <p>Phone: <a href="tel:+91123456790" style="color: inherit; text-decoration: none;">+91 123456790</a></p>
+    <p>Address: 123 Tribal Street, Chennai</p>
+  </div>
+  <p>&copy; 2024 Tribal Handicrafts. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

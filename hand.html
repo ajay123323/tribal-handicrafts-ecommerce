@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribal Handicrafts</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #4c676a;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #333;
+        }
+
+        .hero {
+            background: url('bg.jpg') center/cover no-repeat; /* Set the background image */
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+            margin-top: 100px; /* To offset the fixed header */
+        }
+
+        .hero-content h2 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        .cta-button {
+            background-color: #ff5722;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            background-color: #d84315;
+        }
+
+        #about, #products {
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .product-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            max-width: 350px;
+            width: 100%;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .product-item:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background-color: #2d2d2d;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #a9d6dc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Authentication Section */
+        .auth-container {
+            background: linear-gradient(45deg, #a0bdd0, #bcd7e9);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 450px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease;
+            outline: none;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+            box-shadow: 0 0 5px rgba(218, 248, 250, 0.8);
+        }
+
+        .auth-button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .auth-button:hover {
+            transform: scale(1.05);
+            background-color: #b02e2e;
+        }
+
+        .toggle-link {
+            margin-top: 15px;
+            display: block;
+            color: #ffdd57;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-link:hover {
+            color: #74661a;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tribal Handicrafts</h1>
+        <nav>
+            <ul>
+                <li><a href="Home">Home</a></li>
+                <li><a href="http://127.0.0.1:5500/about.html">About Us</a></li>
+                <li><a href="http://127.0.0.1:5500/products.html">Products</a></li>
+                <li><a href="http://127.0.0.1:5500/contact.html">Contact</a></li>
+                <li><a href="http://127.0.0.1:5500/home.html" onclick="showAuthForm()">Login/Sign Up</a></li>
+                <li><a href="http://127.0.0.1:5500/dd.html">Account</a></li>
+                <li><a href="http://127.0.0.1:5500/cart1.html">Cart</a></li>
+                <li><a href="http://127.0.0.1:5500/cart.html">ADD ITeMS</a></li>
+                <li><a href="http://127.0.0.1:5500/Adim.html">Admin</a></li> 
+            </ul>
+       </nav>
+    </header>
+
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Bringing Traditional Crafts to the Modern World</h2>
+            <p>Empowering artisans, showcasing unique handcrafted creations.</p>
+            <a href="products.html" class="cta-button">Explore Our Products</a>
+        </div>
+    </section>
+ <section id="about" style="padding: 60px 20px; background-color: #f7f8fa; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: left;">
+        <h2 style="font-size: 2.5em; font-weight: bold; color: #333; text-align: center;">About Us</h2>
+        <p style="font-size: 1.2em; line-height: 1.6; color: #555; text-align: center; margin: 20px 0;">
+            We are passionate about promoting and preserving the diverse and vibrant cultural heritage of tribal communities. 
+            Through our platform, we empower artisans with a fair marketplace to showcase their unique handicrafts, bridging 
+            the gap between tradition and the modern world.
+        </p>
+        <div style="display: flex; gap: 20px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
+            <!-- Image Section -->
+            <div style="flex: 1; min-width: 300px;">
+                <img src="mask.jpg" alt="Tribal Handicrafts" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+            </div>
+            <!-- Mission Section -->
+            <div style="flex: 1; min-width: 300px; padding: 20px;">
+                <h3 style="font-size: 1.8em; font-weight: bold; color: #444; margin-bottom: 20px;">Our Mission</h3>
+                <p style="font-size: 1.1em; line-height: 1.6; color: #666;">
+                    Bringing the beauty and tradition of tribal art to a global audience while supporting artisans' livelihoods with dignity and respect. 
+                    We envision a world where every handcrafted piece tells a story and where artisans thrive in the modern marketplace.
+                </p>
+                <a href="#products" style="display: inline-block; padding: 12px 25px; background-color: #ff6f61; color: #fff; font-size: 1.1em; font-weight: bold; border-radius: 5px; text-decoration: none; margin-top: 20px; transition: transform 0.3s ease, background-color 0.3s ease;">
+                    Explore Our Collection
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="impact" style="padding: 60px 20px; background-color: #e9ecef;">
+    <h3 style="font-size: 2.5em; font-weight: bold; color: #333; text-align: center;">Our Impact</h3>
+   <div style="display: flex; gap: 20px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
+        <div style="flex: 1; min-width: 300px;">
+           <p style="font-size: 1.1em; line-height: 1.6; color: #666;">
+                By partnering with artisans directly, we create sustainable income opportunities, uplift local economies, and preserve traditional craftsmanship.
+            </p>
+        </div>
+        <div style="flex: 1; min-width: 300px;">
+            <img src="im.jpeg" alt="Our Impact" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section id="products" style="padding: 60px 20px; background-color: #ffffff; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="font-size: 2.5em; font-weight: bold; color: #333; margin-bottom: 20px;">Our Featured Products</h2>
+        <p style="font-size: 1.2em; color: #555; margin-bottom: 40px;">
+            Discover our unique collection of handcrafted tribal artifacts, designed to bring tradition and culture into your modern lifestyle.
+        </p>
+        <div class="product-grid" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+            <!-- Product 1 with "Black Friday Sale" Tag -->
+            <div class="product-item" style="position: relative; flex: 1 1 300px; max-width: 350px; background-color: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); height: 450px; display: flex; flex-direction: column; justify-content: space-between;">
+                <img src="Handcrafted Tribal Vase.jpg" alt="Handcrafted Tribal Vase" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <!-- Black Friday Sale Tag -->
+                <div style="position: absolute; top: 10px; left: 10px; background-color: #ff9500; color: #fff; padding: 5px 10px; border-radius: 3px; font-size: 0.9em; font-weight: bold; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
+                    Black Friday Sale
+                </div>
+                <h3 style="font-size: 1.5em; font-weight: bold; color: #333; margin-bottom: 10px;">Handcrafted Tribal Vase</h3>
+                <p style="font-size: 1em; color: #666; margin-bottom: 15px; flex-grow: 1;">A beautifully crafted vase that showcases the vibrant colors of tribal art.</p>
+                <p style="font-size: 1.2em; font-weight: bold; color: #ff6f61; margin-bottom: 20px;">₹3,500</p>
+                <a href="#" class="cta-button" style="display: inline-block; padding: 12px 25px; background-color: #ff6f61; color: #fff; font-size: 1em; font-weight: bold; border-radius: 5px; text-decoration: none; transition: transform 0.3s ease, background-color 0.3s ease;">Buy Now</a>
+            </div>
+            <!-- Product 2 with "Coming Soon" Tag -->
+            <div class="product-item" style="position: relative; flex: 1 1 300px; max-width: 350px; background-color: #f9f9f9; padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); height: 450px; display: flex; flex-direction: column; justify-content: space-between;">
+                <img src="colourful-tribal-inspired-necklace.jpg" alt="Tribal Necklace" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
+                <!-- Coming Soon Tag -->
+                <div style="position: absolute; top: 10px; left: 10px; background-color: #ff6f61; color: #fff; padding: 5px 10px; border-radius: 3px; font-size: 0.9em; font-weight: bold; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
+                    Coming Soon
+                </div>
+                <h3 style="font-size: 1.5em; font-weight: bold; color: #333; margin-bottom: 10px;">Tribal Necklace</h3>
+                <p style="font-size: 1em; color: #666; margin-bottom: 15px; flex-grow: 1;">Handmade tribal necklace with intricate beadwork.</p>
+                <p style="font-size: 1.2em; font-weight: bold; color: #ff6f61; margin-bottom: 20px;">₹2,000</p>
+                <a href="#" class="cta-button" style="display: inline-block; padding: 12px 25px; background-color: #ccc; color: #666; font-size: 1em; font-weight: bold; border-radius: 5px; text-decoration: none; cursor: not-allowed;">Coming Soon</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<footer id="contact" style="text-align: center; background-color: #4c676a; color: white; padding: 40px 20px;">
+    <h2 style="margin-bottom: 20px;">Contact Us</h2>
+    <p>Email: <a href="mailto:info@tribalhandicrafts.com" style="color: #a9d6dc; text-decoration: none;">info@tribalhandicrafts.com</a></p>
+    <p>Phone: <a href="tel:+91123456790" style="color: #a9d6dc; text-decoration: none;">+91 123456790</a></p>
+    <p>Address: 123 Tribal Street, Chennai</p>
+    <p>&copy; 2024 Tribal Handicrafts. All rights reserved.</p>
+</footer>
+    <script>
+        function showAuthForm() {
+            document.getElementById('auth').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('auth').style.display = 'block
+
+        }
+    </script>
+
+</body>
+</html>

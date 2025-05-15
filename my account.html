@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Management</title>
+    <style>
+        /* Body and General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(135deg, #00C9FF, #92A8D1); /* Cool blue gradient */
+            color: #333;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background: #2C3E50; /* Dark blue */
+            color: white;
+            width: 250px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .sidebar h1 {
+            font-size: 1.8em;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #BDC3C7;
+            padding-bottom: 10px;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #34495E; /* Cool greyish-blue */
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .menu li:hover {
+            background: #1ABC9C; /* Mint green */
+            transform: translateX(10px);
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            flex: 1;
+            background: #ECF0F1; /* Light grey background */
+            padding: 30px;
+            overflow-y: auto;
+            border-left: 5px solid #2C3E50;
+        }
+
+        .module-container {
+            margin-bottom: 20px;
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .module-header h2 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #2C3E50;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #B2EBF2; /* Light blue */
+            border: 2px solid #2980B9;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            transition: background 0.3s;
+        }
+
+        li:hover {
+            background: #7FDBFF; /* Lighter blue */
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #1ABC9C; /* Mint green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        button:hover {
+            background: #16A085; /* Darker mint green */
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-bottom: 5px solid #2C3E50;
+            }
+
+            .main-content {
+                border-left: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>My Account</h1>
+        <ul class="menu">
+            <li onclick="showModule('Addresses')">Addresses</li>
+            <li onclick="showModule('Orders')">Orders</li>
+            <li onclick="showModule('Help')">Help</li>
+            <li onclick="showModule('Account Settings')">Account Settings</li>
+            <li onclick="showModule('Payment Methods')">Payment Methods</li>
+            <li onclick="showModule('Newsletter Preferences')">Newsletter Preferences</li>
+            <li onclick="showModule('Cart')">View Cart</li>
+        </ul>
+    </div>
+
+    <div class="main-content" id="main-content">
+        <h2>Welcome! Select a module from the left menu.</h2>
+    </div>
+
+    <script>
+        // Initial module data
+        const modulesData = {
+            'Addresses': [
+                'Tribal Village, Chhota Udaipur, Gujarat - 391165',
+                'House 15, Near Sundar Forest, Bastar, Chhattisgarh - 494001',
+                '10B Hilltop Road, Leh, Ladakh - 194101',
+                'Flat 4, Tribal Lane, Shillong, Meghalaya - 793001',
+                '45 Community Center, Nagaland - 797001'
+            ],
+            'Orders': [
+                'Order #1001: Handwoven Cane Basket - ₹1,299',
+                'Order #1005: Dokra Art Elephant - ₹3,499',
+                'Order #1010: Warli Painted Vase - ₹999',
+                'Order #1020: Pattachitra Artwork - ₹4,999',
+                'Order #1030: Terracotta Necklace Set - ₹1,799'
+            ],
+            'Help': [
+                'How to locate a tribal store nearby?',
+                'How to support tribal artisans?',
+                'Shipping policies for tribal products',
+                'How to donate to tribal communities?',
+                'Contact: support@tribalstore.in'
+            ],
+            'Account Settings': [
+                'Update Mobile Number',
+                'Change Profile Picture',
+                'Edit Communication Preferences',
+                'Enable Dark Mode',
+                'Secure Your Account'
+            ],
+            'Payment Methods': [
+                'UPI: tribalshop@upi',
+                'Credit Card: **** **** **** 3456',
+                'Paytm Wallet: ₹3,200 Balance',
+                'Net Banking: Tribal Bank of India',
+                'EMI Options Available'
+            ],
+            'Newsletter Preferences': [
+                'Tribal Art Workshops',
+                'Exclusive Festive Discounts',
+                'New Artisan Launches',
+                'Monthly Community News',
+                'Art for a Cause Updates'
+            ],
+            'Cart': [
+                { name: 'Bamboo Wind Chime', price: '₹699' },
+                { name: 'Dokra Ganesha Figurine', price: '₹2,999' },
+                { name: 'Warli Art Canvas', price: '₹1,499' },
+                { name: 'Handwoven Grass Mat', price: '₹899' },
+                { name: 'Terracotta Tribal Mask', price: '₹3,199' }
+            ]
+        };
+
+        function showModule(moduleName) {
+            const mainContent = document.getElementById('main-content');
+            const data = modulesData[moduleName];
+
+            const moduleList = data
+                .map(item => {
+                    if (moduleName === 'Cart') {
+                        return `<li><div class="cart-item"><span>${item.name}</span><span>${item.price}</span></div></li>`;
+                    }
+                    return `<li>${item}</li>`;
+                })
+                .join('');
+
+            mainContent.innerHTML = `
+                <div class="module-container">
+                    <div class="module-header">
+                        <h2>${moduleName}</h2>
+                        <button onclick="changeData('${moduleName}')">Change Data</button>
+                    </div>
+                    <ul id="module-list">${moduleList}</ul>
+                </div>
+            `;
+        }
+
+        function changeData(moduleName) {
+            if (moduleName === 'Cart') {
+                modulesData['Cart'] = [
+                    { name: 'Handcrafted Wooden Bowl', price: '₹1,299' },
+                    { name: 'Pattachitra Keychain Set', price: '₹599' },
+                    { name: 'Bamboo Fruit Basket', price: '₹899' },
+                    { name: 'Warli Painting Frame', price: '₹2,199' },
+                    { name: 'Terracotta Wall Art', price: '₹3,499' }
+                ];
+            }
+            showModule(moduleName);
+        }
+    </script>
+</body>
+</html>

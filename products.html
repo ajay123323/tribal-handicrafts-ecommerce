@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tribal Handicrafts - Shopping Cart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f9ff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background-color: #009688;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #products, #cart {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    #products h2, #cart h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #00796b;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .product-item {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .product-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+
+    .product-item h3 {
+      font-size: 1.6rem;
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    .product-item .price {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .product-item .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .product-item button {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 48%;
+    }
+
+    .product-item .add-to-cart {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .product-item .add-to-cart:hover {
+      background-color: #388e3c;
+    }
+
+    .product-item .buy-now {
+      background-color: #0288d1;
+      color: white;
+    }
+
+    .product-item .buy-now:hover {
+      background-color: #0277bd;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Tribal Handicrafts</h1>
+</header>
+
+<section id="products">
+  <h2>Explore Cool Tribal Handicrafts</h2>
+  <div class="product-grid" id="product-grid">
+    <!-- Product Items -->
+    <div class="product-item" data-name="Handwoven Tribal Basket">
+      <img src="img1basket.jpg" alt="Handwoven Tribal Basket">
+      <h3>Handwoven Tribal Basket</h3>
+      <p>Handcrafted using traditional techniques, these baskets are made from natural fibers.</p>
+      <div class="price">₹800</div>
+      <div class="buttons">
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now" onclick="window.location.href='cart1.html';">Buy Now</button>
+      </div>
+    </div>
+    <div class="product-item" data-name="Tribal Clay Pottery">
+      <img src="pot.jpg" alt="Tribal Clay Pottery">
+      <h3>Tribal Clay Pottery</h3>
+      <p>Beautiful tribal pots, each with intricate patterns and natural clay finish.</p>
+      <div class="price">₹500</div>
+      <div class="buttons">
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now" onclick="window.location.href='cart1.html';">Buy Now</button>
+      </div>
+    </div>
+    <div class="product-item" data-name="Wooden Tribal Carvings">
+      <img src="Wooden Carvings.jpg" alt="Wooden Tribal Carvings">
+      <h3>Wooden Tribal Carvings</h3>
+      <p>Unique handcrafted wooden carvings, inspired by tribal art and culture.</p>
+      <div class="price">₹1200</div>
+      <div class="buttons">
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now" onclick="window.location.href='cart1.html';">Buy Now</button>
+      </div>
+    </div>
+    <div class="product-item" data-name="Tribal Beaded Jewelry">
+      <img src="Beaded Jewelry.jpg" alt="Tribal Beaded Jewelry">
+      <h3>Tribal Beaded Jewelry</h3>
+      <p>Colorful beads strung together to create stunning pieces of tribal-inspired jewelry.</p>
+      <div class="price">₹400</div>
+      <div class="buttons">
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now" onclick="window.location.href='cart1.html';">Buy Now</button>
+      </div>
+    </div>
+    <div class="product-item" data-name="Handcrafted Tribal Textiles">
+      <img src="Fabric Textiles.jpg" alt="Handcrafted Tribal Textiles">
+      <h3>Handcrafted Tribal Textiles</h3>
+      <p>Traditional fabrics designed and handwoven by tribal artisans, rich in color and history.</p>
+      <div class="price">₹900</div>
+      <div class="buttons">
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now" onclick="window.location.href='cart1.html';">Buy Now</button>
+      </div>
+    </div>
+    <div class="product-item" data-name="Authentic Tribal Leather Accessories">
+      <img src="Leather Accessories.jpg" alt="Authentic Tribal Leather Accessories">
+      <h3>Authentic Tribal Leather Accessories</h3>
+      <p>Handcrafted leather items, each piece showcasing tribal craftsmanship and culture.</p>
+      <div class="price">₹1500</div>
+      <div class="buttons">
+        <button class="add-to-cart">Add to Cart</button>
+        <button class="buy-now" onclick="window.location.href='cart1.html';">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function updateCart(product) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${product.name} added to cart!`);
+  }
+
+  document.querySelectorAll('.product-item').forEach(item => {
+    const name = item.getAttribute('data-name');
+    const price = item.querySelector('.price').innerText.replace('₹', '');
+    const imgSrc = item.querySelector('img').src;
+
+    item.querySelector('.add-to-cart').addEventListener('click', () => {
+      updateCart({ name, price, imgSrc, quantity: 1 });
+    });
+  });
+</script>
+
+</body>
+</html>
