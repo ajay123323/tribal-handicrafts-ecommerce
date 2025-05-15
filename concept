@@ -1,0 +1,26 @@
+tribal-handicrafts-ecommerce/
+├── index.html              👉 Home Page
+├── about.html              👉 About Us Page
+├── products.html           👉 Product Listing Page
+├── contact.html            👉 Contact Page
+├── login.html              👉 Login / Sign Up Page
+├── account.html            👉 User Account Page
+├── cart.html               👉 Shopping Cart Page
+├── admin.html              👉 Admin Panel Page
+├── add-item.html           👉 Add New Product Page
+│
+├── css/
+│   └── styles.css          👉 All custom styling
+│
+├── js/
+│   ├── main.js             👉 Navigation / Common Logic
+│   ├── products.js         👉 Product list and cart logic
+│   ├── auth.js             👉 Login/signup + session
+│   ├── cart.js             👉 Add/Remove from cart
+│   └── admin.js            👉 Add items / admin-only logic
+│
+├── assets/
+│   ├── images/             👉 Product images, banners
+│   └── icons/              👉 Icons for UI
+│
+└── README.md               👉 Project overview & setup guide
