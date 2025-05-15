@@ -1,0 +1,19 @@
+# Tribal Handicrafts Ecommerce 🪶
+
+A simple ecommerce frontend project showcasing authentic tribal handicrafts, built using **HTML**, **CSS**, and **JavaScript** — no frameworks or backend.
+
+## 🔗 Live Demo
+> [Add GitHub Pages link after deployment]
+
+## 🧰 Features
+- 🏠 Home page with featured products
+- 🛍️ Browse and add items to cart
+- 🔐 Login / Sign up (stored in localStorage)
+- 👤 Account management (basic mock)
+- 🛒 Cart with total calculation
+- 🛠️ Admin panel to add products (local-only)
+- 📱 Responsive design
+
+## 📁 Folder Structure
+See the project tree above for how files are organized.
+
